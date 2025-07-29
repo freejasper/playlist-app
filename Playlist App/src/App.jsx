@@ -4,11 +4,12 @@ import SearchBar from './ui/SearchBar';
 
 function App() {
 
+  const [ searchResults, setSearchResults ] = useState(null);
+
   return (
     <>
-      <SearchBar />
-      <SearchResults />
-      <Playlist />
+      <SearchBar setSearchResults={setSearchResults} />
+
     </>
   )
 }
