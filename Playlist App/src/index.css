@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: #1c002e;
+  background: linear-gradient(141deg,rgba(28, 0, 46, 1) 0%, rgba(252, 90, 69, 1) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,8 +25,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  display: block;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -66,3 +66,40 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+#root {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 100px;
+  gap: 20px;
+}
+
+
+/*
+.
+.
+SEARCH BAR
+.
+.
+*/
+.searchBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+.searchBar input {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.searchBar button {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 15px 0 15px;
+}
+
+
