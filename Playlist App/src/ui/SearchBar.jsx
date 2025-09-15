@@ -6,10 +6,28 @@ export default function SearchBar({ SearchSongs, setSearchResults }) {
         setSongSearch(target.value);
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         //searchlogic
-        const results = SearchSongs(songSearch);
+        const results = await SearchSongs(songSearch);
+        console.log(results);
+        let songResults = [];
+        if (results && Array.isArray(results.tracks.items)) {
+            results.tracks.items.forEach((item) => {
+            // Extract artist names
+            const artist = item.artists.map(artist => artist.name).join(', ');
+            const songObject = {
+                songname: item.name,
+                artist,
+                album: item.album.name,
+                artwork: item.album.images[0].url,
+                id: item.id
+            }
+            songResults.push(songObject);
+            })
+        }
+        setSearchResults(songResults);
+        setSongSearch('');
     }
 
     return (
