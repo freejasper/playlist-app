@@ -3,7 +3,7 @@ import Song from './Song';
 import '../css/Playlist.css'
 import SaveToSpotify from '../utils/SaveToSpotify.jsx';
 
-export default function Playlist({ playlist, handleRemove }) {
+export default function Playlist({ playlist, handleRemove, handleSave }) {
     const [ playlistName, setPlaylistName ] = useState('');
 
     function handleChange({ target }) {
@@ -16,7 +16,7 @@ export default function Playlist({ playlist, handleRemove }) {
             {playlist.map((item, index) => 
                 <Song key={index} item={item} searchResult={false} handleRemove={handleRemove} />
             )}
-        <SaveToSpotify playlist={playlist} />
+        <SaveToSpotify handleSave={handleSave} />
         </div>
     )
 }

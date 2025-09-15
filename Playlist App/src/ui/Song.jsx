@@ -1,6 +1,6 @@
 import '../css/Song.css';
 
-export default function Song({ key, item, searchResult, handleAdd, handleRemove }) {
+export default function Song({ item, searchResult, handleAdd, handleRemove }) {
     function addToPlaylist() {
         handleAdd(item);
     }

@@ -1,5 +1,3 @@
-export default function SaveToSpotify({ playlist }) {
-    function handleSave() {};
-    
+export default function SaveToSpotify({ handleSave }) {
     return <button onClick={handleSave} >SAVE TO SPOTIFY</button>
 }
