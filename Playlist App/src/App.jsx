@@ -3,7 +3,6 @@ import './App.css';
 import Authenticate from './utils/PKCEauth';
 import getToken from './utils/PKCEresponse';
 import SearchBar from './ui/SearchBar';
-import './utils/SearchSongs';
 import SearchSongs from './utils/SearchSongs';
 import SearchResults from './ui/SearchResults';
 import Playlist from './ui/Playlist';
@@ -78,9 +77,9 @@ function App() {
   return (
     <>
       {accessToken ? null : <button onClick={auth} >Login</button>}
-      <SearchBar SearchSongs={SearchSongs} setSearchResults={setSearchResults} accessToken={accessToken} />
-      <SearchResults searchResults={searchResults} handleAdd={handleAdd} />
-      <Playlist playlist={playlist} handleRemove={handleRemove} handleSave={handleSave} />
+      {accessToken && <SearchBar SearchSongs={SearchSongs} setSearchResults={setSearchResults} accessToken={accessToken} />}
+      {accessToken && <SearchResults searchResults={searchResults} handleAdd={handleAdd} />}
+      {accessToken && <Playlist playlist={playlist} handleRemove={handleRemove} handleSave={handleSave} />}
 
     </>
   )

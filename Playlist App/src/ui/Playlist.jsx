@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Song from './Song';
-import '../css/Playlist.css'
 import SaveToSpotify from '../utils/SaveToSpotify.jsx';
 
 export default function Playlist({ playlist, handleRemove, handleSave }) {

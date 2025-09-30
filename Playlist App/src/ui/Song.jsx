@@ -1,5 +1,3 @@
-import '../css/Song.css';
-
 export default function Song({ item, searchResult, handleAdd, handleRemove }) {
     function addToPlaylist() {
         handleAdd(item);
@@ -13,18 +11,28 @@ export default function Song({ item, searchResult, handleAdd, handleRemove }) {
         return (
         <>
             <div className='song'>
-                <h1>{item.songname}</h1>
-                <h3>{item.artist} | {item.album}</h3>
+                <div className='songArt'>
+                    <img src={item.artwork} alt={item.songname + ' album art'} />
+                </div>
+                <div className='songInfo'>
+                    <h1>{item.songname}</h1>
+                    <h3>{item.artist} | {item.album}</h3>
+                </div>
                 <button onClick={addToPlaylist} className='addsong'>+</button>
             </div>
         </>
-    );
+        );
     }
     return (
         <>
             <div className='song'>
-                <h1>{item.songname}</h1>
-                <h3>{item.artist} | {item.album}</h3>
+                <div className='songArt'>
+                    <img src={item.artwork} alt={item.songname + ' album art'} />
+                </div>
+                <div className='songInfo'>
+                    <h1>{item.songname}</h1>
+                    <h3>{item.artist} | {item.album}</h3>
+                </div>
                 <button onClick={removeFromPlaylist} className='removesong'>-</button>
             </div>
         </>

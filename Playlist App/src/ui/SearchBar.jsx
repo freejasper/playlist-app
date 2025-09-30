@@ -20,7 +20,7 @@ export default function SearchBar({ SearchSongs, setSearchResults }) {
                 songname: item.name,
                 artist,
                 album: item.album.name,
-                artwork: item.album.images[0].url,
+                artwork: item.album.images[2].url,
                 id: item.id
             }
             songResults.push(songObject);
@@ -39,3 +39,4 @@ export default function SearchBar({ SearchSongs, setSearchResults }) {
         </>
     );
 }
+
