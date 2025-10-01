@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Song from './Song';
-import SaveToSpotify from '../utils/SaveToSpotify.jsx';
+import SaveToSpotify from './SaveToSpotify.jsx';
 
-export default function Playlist({ playlist, handleRemove, handleSave }) {
+export default function Playlist({ playlist, setPlaylist, handleRemove }) {
     const [ playlistName, setPlaylistName ] = useState('');
 
     function handleChange({ target }) {
@@ -15,7 +15,7 @@ export default function Playlist({ playlist, handleRemove, handleSave }) {
             {playlist.map((item, index) => 
                 <Song key={index} item={item} searchResult={false} handleRemove={handleRemove} />
             )}
-        <SaveToSpotify handleSave={handleSave} />
+        <SaveToSpotify playlist={playlist} setPlaylist={setPlaylist} playlistName={playlistName} />
         </div>
     )
 }

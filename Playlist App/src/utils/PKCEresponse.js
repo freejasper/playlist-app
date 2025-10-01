@@ -21,5 +21,4 @@ export default async function getToken(code, clientId, redirectUri) {
   const response = await body.json();
 
   localStorage.setItem('access_token', response.access_token);
-  //console.log(response.access_token);
 }

@@ -6,6 +6,7 @@ import SearchBar from './ui/SearchBar';
 import SearchSongs from './utils/SearchSongs';
 import SearchResults from './ui/SearchResults';
 import Playlist from './ui/Playlist';
+import CreatePlaylist from './utils/CreatePlaylist';
 
 const clientId = 'a0bed56edb4b48dfb1bb00d490fc1e98';
 const redirectUri = 'http://127.0.0.1:5173/';
@@ -22,14 +23,6 @@ function App() {
 
   function handleRemove(song) {
     setPlaylist(playlist.filter((item) => item.id != song.id));
-  }
-
-  function handleSave() {
-    let songURIs = [];
-    playlist.forEach((song) => {
-      songURIs.push(song.uri);
-    });
-    //Do something with the uri array
   }
 
   //login stuff
@@ -71,9 +64,9 @@ function App() {
         
       />}
       {accessToken && <Playlist 
-        playlist={playlist} 
+        playlist={playlist}
+        setPlaylist={setPlaylist} 
         handleRemove={handleRemove} 
-        handleSave={handleSave} 
       />}
     </>
   )
