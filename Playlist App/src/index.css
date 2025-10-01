@@ -57,7 +57,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
 }
 
@@ -71,7 +71,7 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-  background-color: unset;
+  background-color: transparent;
 }
 
 button:hover {
@@ -86,7 +86,7 @@ button:focus-visible {
 input {
   appearance: auto;
   color: white;
-  background-color: canvas;
+  background-color: rgb(35, 35, 35);
   border-top-width: 1px;
   border-right-width: 1px;
   border-bottom-width: 1px;
@@ -131,6 +131,43 @@ input:hover, input:focus, input:active {
   column-gap: 40px;
 }
 
+.siteTitle {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  top: 0;
+  font-size: 2.5em;
+  line-height: 1.1;
+  font-weight: 700;
+  padding: 15px 15px 15px 15px;
+  border-radius: 8px;
+  background-color: rgba(26, 26, 26, 0.8);
+
+  font-family: var(--primary-font);
+}
+
+/*
+.
+.
+LOGIN BUTTON
+.
+.
+*/
+.loginButton {
+  position: relative;
+  background-color: var(--primary-color);
+  color: var(--off-black);
+  font-size: 1.25em;
+  width: 100%;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.loginButton:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
 
 /*
 .
@@ -153,6 +190,9 @@ SEARCH BAR
   flex-grow: 1;
   border-radius: 8px;
   padding: 0 5px 0 5px;
+
+  font-family: var(--primary-font);
+  font-size: 0.8em;
 }
 
 .searchBar button {
@@ -177,8 +217,7 @@ PLAYLIST
 }
 
 #playlistTitle {
-    background-color: unset;
-    font-size: 3.2em;
+    font-size: 2em;
     line-height: 1.4;
     font-weight: 700;
     padding: 10px 15px 10px 15px;
@@ -197,8 +236,50 @@ SEARCH RESULTS
 .resultsH1 {
     margin: 0;
     Line-height: 1.4em;
-    padding: 10px 15px 10px 15px;
+    padding: 10px 15px 10px 0;
 
+}
+
+.pagination {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.nextButton, .prevButton {
+  flex-grow: 1;
+  color: white;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--primary-color);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 0 5px 0 5px;
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.nextButton:hover, .prevButton:hover {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.nextButton {
+  text-align: right;
+}
+
+.prevButton {
+  text-align: left;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /*
@@ -219,7 +300,7 @@ SONG DISPLAY
   column-gap: 25px;
   row-gap: 10px;
   grid-template-columns: auto 1fr;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 1fr 25px;
 }
 
 .songInfo {

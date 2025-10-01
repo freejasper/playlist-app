@@ -6,7 +6,7 @@ export default async function SearchSongs(query, offset) {
         searchOffset = `&offset=${offset}`;
     }
     
-    const urlParams = `?q=${encodeURIComponent(query)}&type=track&market=AU&limit20&${searchOffset}`;
+    const urlParams = `?q=${encodeURIComponent(query)}&type=track&market=AU&limit=10${searchOffset}`;
     const urlToFetch = `${endpoint}${urlParams}`;
     const options = {
         headers: {

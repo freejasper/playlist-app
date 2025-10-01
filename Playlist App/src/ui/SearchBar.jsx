@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import HandleQuery from '../utils/HandleQuery';
 
-export default function SearchBar({ SearchSongs, setSearchResults }) {
+export default function SearchBar({ 
+    SearchSongs, 
+    setSearchResults, 
+    setSearchQuery,
+    setSearchOffset 
+    }) {
     const [songSearch, setSongSearch] = useState('');
     function handleChange({ target }) {
         setSongSearch(target.value);
@@ -8,24 +14,10 @@ export default function SearchBar({ SearchSongs, setSearchResults }) {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        //searchlogic
-        const results = await SearchSongs(songSearch);
-        console.log(results);
-        let songResults = [];
-        if (results && Array.isArray(results.tracks.items)) {
-            results.tracks.items.forEach((item) => {
-            // Extract artist names
-            const artist = item.artists.map(artist => artist.name).join(', ');
-            const songObject = {
-                songname: item.name,
-                artist,
-                album: item.album.name,
-                artwork: item.album.images[2].url,
-                id: item.id
-            }
-            songResults.push(songObject);
-            })
-        }
+
+        setSearchOffset(0);
+        setSearchQuery(songSearch);
+        const songResults = await HandleQuery(songSearch, 0, SearchSongs);
         setSearchResults(songResults);
         setSongSearch('');
     }
@@ -34,7 +26,7 @@ export default function SearchBar({ SearchSongs, setSearchResults }) {
         <>
             <form className='searchBar' name='searchBar' onSubmit={handleSubmit} >
                 <input type='text' value={songSearch} onChange={handleChange} ></input>
-                <button type='submit'>Search</button>
+                <button type='submit'>SEARCH</button>
             </form>
         </>
     );
