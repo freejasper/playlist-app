@@ -218,6 +218,12 @@ PLAYLIST
   flex-direction: column;
 }
 
+.playlistHeader {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
 #playlistTitle {
     font-size: 2em;
     line-height: 1.4;
@@ -226,6 +232,34 @@ PLAYLIST
     border-radius: 8px;
 
     font-family: var(--primary-font);
+}
+
+#playlistDescription {
+    font-size: 1em;
+    line-height: 1.4;
+    font-weight: 400;
+    padding: 10px 15px 10px 15px;
+    border-radius: 8px;
+
+    font-family: var(--primary-font);
+}
+
+.songArt {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.albumArt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 /*

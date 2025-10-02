@@ -12,7 +12,7 @@ export default function Song({ item, searchResult, handleAdd, handleRemove }) {
         <>
             <div className='song'>
                 <div className='songArt'>
-                    <img src={item.artwork} alt={item.songname + ' album art'} />
+                    <img className='albumArt' src={item.artwork} alt={item.songname + ' album art'} />
                 </div>
                 <div className='songInfo'>
                     <h1>{item.songname}</h1>
@@ -27,7 +27,7 @@ export default function Song({ item, searchResult, handleAdd, handleRemove }) {
         <>
             <div className='song'>
                 <div className='songArt'>
-                    <img src={item.artwork} alt={item.songname + ' album art'} />
+                    <img className='albumArt' src={item.artwork} alt={item.songname + ' album art'} />
                 </div>
                 <div className='songInfo'>
                     <h1>{item.songname}</h1>

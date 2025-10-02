@@ -10,8 +10,9 @@ export default async function HandleQuery(query, offset, SearchSongs) {
                 songname: item.name,
                 artist,
                 album: item.album.name,
-                artwork: item.album.images[2].url,
-                id: item.id
+                artwork: item.album.images[1].url,
+                id: item.id,
+                uri: item.uri
             }
             songResults.push(songObject);
             })
